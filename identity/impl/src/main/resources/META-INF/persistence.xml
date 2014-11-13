@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        version="1.0"
+        xmlns="http://java.sun.com/xml/ns/persistence"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+    <persistence-unit name="organizer-identity" transaction-type="RESOURCE_LOCAL">
+        <class>organizer.identity.bo.AddressBo</class>
+        <class>organizer.identity.bo.EmailAddressBo</class>
+        <class>organizer.identity.bo.GroupBo</class>
+        <class>organizer.identity.bo.GroupMemberBo</class>
+        <class>organizer.identity.bo.NameBo</class>
+        <class>organizer.identity.bo.PersonBo</class>
+        <class>organizer.identity.bo.PhoneNumberBo</class>
+        <class>organizer.identity.bo.SkypeHandleBo</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    </persistence-unit>
+</persistence>

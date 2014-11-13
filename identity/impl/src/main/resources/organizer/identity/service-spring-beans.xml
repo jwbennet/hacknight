@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:component-scan base-package="organizer.identity"/>
+    <tx:annotation-driven transaction-manager="jpaTransactionManager"/>
+
+    <bean id="swaggerConfig" class="com.wordnik.swagger.jaxrs.config.BeanConfig">
+        <property name="resourcePackage" value="organizer.identity"/>
+        <property name="version" value="1.0.0"/>
+        <property name="basePath" value="http://localhost:8080/identity/api"/>
+        <property name="title" value="Organizer Identity Module"/>
+        <property name="description" value="This module is used for maintaining contacts and their contact information"/>
+        <property name="contact" value="jwbennet@gmail.com"/>
+        <property name="license" value="Apache 2.0 License"/>
+        <property name="licenseUrl" value="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+        <property name="scan" value="true"/>
+    </bean>
+
+    <jaxrs:server id="identityAPI" address="/">
+        <jaxrs:serviceBeans>
+            <ref bean="identityDiscoveryResource"/>
+            <ref bean="addressResource"/>
+            <ref bean="emailAddressResource"/>
+            <ref bean="groupResource" />
+            <ref bean="groupMemberResource" />
+            <ref bean="nameResource" />
+            <ref bean="personResource"/>
+            <ref bean="phoneNumberResource" />
+            <ref bean="skypeHandleResource" />
+            <bean class="com.wordnik.swagger.jaxrs.listing.ApiListingResourceJSON" />
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <bean class="organizer.jaxrs.providers.DefaultExceptionMapper" />
+            <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider" />
+            <bean class="organizer.jaxrs.providers.JacksonObjectMapperContextResolver" />
+            <bean class="org.apache.cxf.jaxrs.provider.JAXBElementProvider">
+                <property name="marshallerProperties">
+                    <util:map id="propertiesMap">
+                        <entry key="jaxb.formatted.output">
+                            <value type="java.lang.Boolean">true</value>
+                        </entry>
+                    </util:map>
+                </property>
+                <property name="collectionWrapperMap">
+                    <util:map>
+                        <entry key="organizer.identity.dto.AddressDto" value="addresses" />
+                        <entry key="organizer.identity.dto.EmailAddressDto" value="emailAddresses" />
+                        <entry key="organizer.identity.dto.PersonDto" value="people" />
+                    </util:map>
+                </property>
+                <property name="extraClass">
+                    <util:list>
+                        <value>organizer.dto.Links</value>
+                        <value>organizer.identity.dto.AddressDto</value>
+                        <value>organizer.identity.dto.EmailAddressDto</value>
+                        <value>organizer.identity.dto.GroupDto</value>
+                        <value>organizer.identity.dto.GroupMemberDto</value>
+                        <value>organizer.identity.dto.NameDto</value>
+                        <value>organizer.identity.dto.PersonDto</value>
+                        <value>organizer.identity.dto.PhoneNumberDto</value>
+                        <value>organizer.identity.dto.SkypeHandleDto</value>
+                    </util:list>
+                </property>
+            </bean>
+            <bean class="com.wordnik.swagger.jaxrs.listing.ResourceListingProvider" />
+            <bean class="com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider" />
+        </jaxrs:providers>
+        <jaxrs:features>
+            <bean class="org.apache.cxf.jaxrs.validation.JAXRSBeanValidationFeature" />
+        </jaxrs:features>
+    </jaxrs:server>
+
+</beans>

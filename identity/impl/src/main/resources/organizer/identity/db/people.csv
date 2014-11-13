@@ -1,0 +1,11 @@
+tenant_id,username,birthday,active_from_date,active_to_date,create_date,version
+1,jawbenne,1986-01-31 00:00:00,NULL,NULL,NOW(),1
+1,ewestfal,NULL,NULL,NULL,NOW(),1
+1,ssaripel,NULL,NULL,NULL,NOW(),1
+1,kmcnew,NULL,NULL,NULL,NOW(),1
+1,fraferna,NULL,NULL,NULL,NOW(),1
+1,athill,NULL,NULL,NULL,NOW(),1
+1,dhdyer,NULL,NULL,NULL,NOW(),1
+1,jotill,NULL,NULL,NULL,NOW(),1
+1,jsandahl,1988-09-28 00:00:00,NULL,NULL,NOW(),1
+

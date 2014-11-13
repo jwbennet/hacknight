@@ -1,0 +1,3 @@
+tenant_id,contact_type,contact_id,type,username,primary_ind,active_from_date,active_to_date,create_date,version
+1,P,(SELECT id FROM people WHERE username = 'jawbenne'),PRSN,jwbennet,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jsandahl'),PRSN,swingsintherain,Y,NULL,NULL,NOW(),1

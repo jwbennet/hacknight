@@ -1,0 +1,20 @@
+tenant_id,contact_type,contact_id,type,given_name,middle_name,surname,suffix_name,primary_ind,active_from_date,active_to_date,create_date,version
+1,P,(SELECT id FROM people WHERE username = 'jawbenne'),PRM,James,William,Bennett,III,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jsandahl'),PRM,Jennifer,Jean,Sandahl,NULL,N,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jsandahl'),PRFR,Jen,NULL,Sandahl,NULL,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'ewestfal'),PRM,Eric,Curtis,Westfall,NULL,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'ssaripel'),PRM,Shravya,NULL,Saripella,NULL,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'kmcnew'),PRM,Kurt,NULL,McNew,NULL,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'fraferna'),PRM,Francis,NULL,Fernandez,NULL,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'athill'),PRM,Andrew,NULL,Hill,NULL,N,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'athill'),PRFR,Andy,NULL,Hill,NULL,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'dhdyer'),PRM,David,Henry,Dyer,NULL,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jotill'),PRM,Joesph,NULL,Till,NULL,N,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jotill'),PRFR,Joe,NULL,Till,NULL,Y,NULL,NULL,NOW(),1
+1,G,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-sit'),PRM,NULL,NULL,Middleware Team,NULL,Y,NULL,NULL,NOW(),1
+1,G,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-one'),PRM,NULL,NULL,One Team,NULL,Y,NULL,NULL,NOW(),1
+1,G,(SELECT id FROM groups WHERE alias = 'bl-uits-esi'),PRM,NULL,NULL,ESI Team,NULL,Y,NULL,NULL,NOW(),1
+1,G,(SELECT id FROM groups WHERE alias = 'bl-uits-ebs-fs'),PRM,NULL,NULL,KFS Team,NULL,Y,NULL,NULL,NOW(),1
+1,G,(SELECT id FROM groups WHERE alias = 'bl-uits-ebs-hr'),PRM,NULL,NULL,HR Team,NULL,Y,NULL,NULL,NOW(),1
+1,G,(SELECT id FROM groups WHERE alias = 'bl-uits-ebs-ra'),PRM,NULL,NULL,KC Team,NULL,Y,NULL,NULL,NOW(),1
+1,G,(SELECT id FROM groups WHERE alias = 'bl-uits-sis-sr'),PRM,NULL,NULL,SIS Team,NULL,Y,NULL,NULL,NOW(),1

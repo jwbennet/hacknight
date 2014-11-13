@@ -1,0 +1,4 @@
+tenant_id,contact_type,contact_id,type,line1,line2,line3,city,state,postal_code,country,primary_ind,active_from_date,active_to_date,create_date,version
+1,P,(SELECT id FROM people WHERE username = 'jawbenne'),HOME,4104 W Dresden Drive,NULL,NULL,Bloomington,IN,47404,US,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jawbenne'),WORK,CIB 2709 E 10th Street,VPIT,BL,Bloomington,IN,47408,US,N,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jsandahl'),HOME,4104 W Dresden Drive,NULL,NULL,Bloomington,IN,47404,US,Y,NULL,NULL,NOW(),1

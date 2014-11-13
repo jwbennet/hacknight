@@ -1,0 +1,5 @@
+tenant_id,contact_type,contact_id,type,number,primary_ind,active_from_date,active_to_date,create_date,version
+1,P,(SELECT id FROM people WHERE username = 'jawbenne'),HOME,8128769885,N,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jawbenne'),WORK,8128550277,N,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jawbenne'),MOBI,3174273218,Y,NULL,NULL,NOW(),1
+1,P,(SELECT id FROM people WHERE username = 'jsandahl'),HOME,7634395797,Y,NULL,NULL,NOW(),1

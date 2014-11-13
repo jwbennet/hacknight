@@ -1,0 +1,8 @@
+tenant_id,alias,active_from_date,active_to_date,create_date,version
+1,bl-uits-esi-sit,NULL,NULL,NOW(),1
+1,bl-uits-esi-one,NULL,NULL,NOW(),1
+1,bl-uits-esi,NULL,NULL,NOW(),1
+1,bl-uits-ebs-fs,NULL,NULL,NOW(),1
+1,bl-uits-ebs-hr,NULL,NULL,NOW(),1
+1,bl-uits-ebs-ra,NULL,NULL,NOW(),1
+1,bl-uits-sis-sr,NULL,NULL,NOW(),1

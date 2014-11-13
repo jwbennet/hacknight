@@ -1,0 +1,641 @@
+databaseChangeLog:
+    - property:
+        name: now.func
+        value: NOW()
+        dbms: mysql
+    - changeSet:
+        id: create-person-table
+        author: jawbenne
+        changes:
+            - createTable:
+                tableName: people
+                columns:
+                    - column:
+                        name: id
+                        type: BIGINT
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: tenant_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: username
+                        type: VARCHAR(40)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: birthday
+                        type: DATE
+                    - column:
+                        name: active_from_date
+                        type: DATETIME
+                    - column:
+                        name: active_to_date
+                        type: DATETIME
+                    - column:
+                        name: create_date
+                        type: DATETIME
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: update_date
+                        type: TIMESTAMP
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: version
+                        type: INT
+                        defaultValueNumeric: 1
+                        constraints:
+                            nullable: false
+    - changeSet:
+        id: create-person-data
+        author: jawbenne
+        changes:
+            - loadData:
+                file: com/iu/organizer/identity/db/people.csv
+                tableName: people
+                columns:
+                    - column:
+                        name: created_date
+                        type: COMPUTED
+        rollback:
+    - changeSet:
+        id: create-address-table
+        author: jawbenne
+        changes:
+            - createTable:
+                tableName: addresses
+                columns:
+                    - column:
+                        name: id
+                        type: BIGINT
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: tenant_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: line1
+                        type: VARCHAR(45)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: line2
+                        type: VARCHAR(45)
+                    - column:
+                        name: line3
+                        type: VARCHAR(45)
+                    - column:
+                        name: city
+                        type: VARCHAR(30)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: state
+                        type: VARCHAR(2)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: postal_code
+                        type: VARCHAR(15)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: country
+                        type: VARCHAR(2)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: primary_ind
+                        type: VARCHAR(1)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: active_from_date
+                        type: DATETIME
+                    - column:
+                        name: active_to_date
+                        type: DATETIME
+                    - column:
+                        name: create_date
+                        type: DATETIME
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: update_date
+                        type: TIMESTAMP
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: version
+                        type: INT
+                        defaultValueNumeric: 1
+                        constraints:
+                            nullable: false
+    - changeSet:
+        id: create-address-data
+        author: jawbenne
+        changes:
+            - loadData:
+                file: com/iu/organizer/identity/db/addresses.csv
+                tableName: addresses
+                columns:
+                    - column:
+                        name: contact_id
+                        type: COMPUTED
+                    - column:
+                        name: created_date
+                        type: COMPUTED
+        rollback:
+    - changeSet:
+        id: create-phone-numbers-table
+        author: jawbenne
+        changes:
+            - createTable:
+                tableName: phone_numbers
+                columns:
+                    - column:
+                        name: id
+                        type: BIGINT
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: tenant_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: number
+                        type: VARCHAR(20)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: extension
+                        type: VARCHAR(8)
+                    - column:
+                        name: primary_ind
+                        type: VARCHAR(1)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: active_from_date
+                        type: DATETIME
+                    - column:
+                        name: active_to_date
+                        type: DATETIME
+                    - column:
+                        name: create_date
+                        type: DATETIME
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: update_date
+                        type: TIMESTAMP
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: version
+                        type: INT
+                        defaultValueNumeric: 1
+                        constraints:
+                            nullable: false
+    - changeSet:
+        id: create-phone-number-data
+        author: jawbenne
+        changes:
+            - loadData:
+                file: com/iu/organizer/identity/db/phoneNumbers.csv
+                tableName: phone_numbers
+                columns:
+                    - column:
+                        name: contact_id
+                        type: COMPUTED
+                    - column:
+                        name: created_date
+                        type: COMPUTED
+        rollback:
+    - changeSet:
+        id: create-email-address-table
+        author: jawbenne
+        changes:
+            - createTable:
+                tableName: email_addresses
+                columns:
+                    - column:
+                        name: id
+                        type: BIGINT
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: tenant_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: email
+                        type: VARCHAR(100)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: primary_ind
+                        type: VARCHAR(1)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: active_from_date
+                        type: DATETIME
+                    - column:
+                        name: active_to_date
+                        type: DATETIME
+                    - column:
+                        name: create_date
+                        type: DATETIME
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: update_date
+                        type: TIMESTAMP
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: version
+                        type: INT
+                        defaultValueNumeric: 1
+                        constraints:
+                            nullable: false
+    - changeSet:
+        id: create-email-address-data
+        author: jawbenne
+        changes:
+            - loadData:
+                file: com/iu/organizer/identity/db/emailAddresses.csv
+                tableName: email_addresses
+                columns:
+                    - column:
+                        name: contact_id
+                        type: COMPUTED
+                    - column:
+                        name: created_date
+                        type: COMPUTED
+        rollback:
+    - changeSet:
+        id: create-skype-table
+        author: jawbenne
+        changes:
+            - createTable:
+                tableName: skype_handles
+                columns:
+                    - column:
+                        name: id
+                        type: BIGINT
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: tenant_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: username
+                        type: VARCHAR(40)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: primary_ind
+                        type: VARCHAR(1)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: active_from_date
+                        type: DATETIME
+                    - column:
+                        name: active_to_date
+                        type: DATETIME
+                    - column:
+                        name: create_date
+                        type: DATETIME
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: update_date
+                        type: TIMESTAMP
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: version
+                        type: INT
+                        defaultValueNumeric: 1
+                        constraints:
+                            nullable: false
+    - changeSet:
+        id: create-skype-handles-data
+        author: jawbenne
+        changes:
+            - loadData:
+                file: com/iu/organizer/identity/db/skypeHandles.csv
+                tableName: skype_handles
+                columns:
+                    - column:
+                        name: contact_id
+                        type: COMPUTED
+                    - column:
+                        name: created_date
+                        type: COMPUTED
+        rollback:
+    - changeSet:
+        id: create-groups-table
+        author: jawbenne
+        changes:
+            - createTable:
+                tableName: groups
+                columns:
+                    - column:
+                        name: id
+                        type: BIGINT
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: tenant_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: alias
+                        type: VARCHAR(40)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: active_from_date
+                        type: DATETIME
+                    - column:
+                        name: active_to_date
+                        type: DATETIME
+                    - column:
+                        name: create_date
+                        type: DATETIME
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: update_date
+                        type: TIMESTAMP
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: version
+                        type: INT
+                        defaultValueNumeric: 1
+                        constraints:
+                            nullable: false
+    - changeSet:
+        id: create-groups-data
+        author: jawbenne
+        changes:
+            - loadData:
+                file: com/iu/organizer/identity/db/groups.csv
+                tableName: groups
+                columns:
+                    - column:
+                        name: created_date
+                        type: COMPUTED
+        rollback:
+    - changeSet:
+        id: create-group-members-table
+        author: jawbenne
+        changes:
+            - createTable:
+                tableName: group_members
+                columns:
+                    - column:
+                        name: id
+                        type: BIGINT
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: tenant_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: group_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: active_from_date
+                        type: DATETIME
+                    - column:
+                        name: active_to_date
+                        type: DATETIME
+                    - column:
+                        name: create_date
+                        type: DATETIME
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: update_date
+                        type: TIMESTAMP
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: version
+                        type: INT
+                        defaultValueNumeric: 1
+                        constraints:
+                            nullable: false
+    - changeSet:
+        id: create-group-members-data
+        author: jawbenne
+        changes:
+            - loadData:
+                file: com/iu/organizer/identity/db/groupMembers.csv
+                tableName: group_members
+                columns:
+                    - column:
+                        name: group_id
+                        type: COMPUTED
+                    - column:
+                        name: contact_id
+                        type: COMPUTED
+                    - column:
+                        name: created_date
+                        type: COMPUTED
+        rollback:
+    - changeSet:
+        id: create-names-table
+        author: jawbenne
+        changes:
+            - createTable:
+                tableName: names
+                columns:
+                    - column:
+                        name: id
+                        type: BIGINT
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: tenant_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: contact_id
+                        type: BIGINT
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: type
+                        type: VARCHAR(10)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: given_name
+                        type: VARCHAR(40)
+                    - column:
+                        name: middle_name
+                        type: VARCHAR(40)
+                    - column:
+                        name: surname
+                        type: VARCHAR(80)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: suffix_name
+                        type: VARCHAR(10)
+                    - column:
+                        name: primary_ind
+                        type: VARCHAR(1)
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: active_from_date
+                        type: DATETIME
+                    - column:
+                        name: active_to_date
+                        type: DATETIME
+                    - column:
+                        name: create_date
+                        type: DATETIME
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: update_date
+                        type: TIMESTAMP
+                        constraints:
+                            nullable: false
+                    - column:
+                        name: version
+                        type: INT
+                        defaultValueNumeric: 1
+                        constraints:
+                            nullable: false
+    - changeSet:
+        id: create-names-data
+        author: jawbenne
+        changes:
+            - loadData:
+                file: com/iu/organizer/identity/db/names.csv
+                tableName: names
+                columns:
+                    - column:
+                        name: contact_id
+                        type: COMPUTED
+                    - column:
+                        name: created_date
+                        type: COMPUTED
+        rollback:

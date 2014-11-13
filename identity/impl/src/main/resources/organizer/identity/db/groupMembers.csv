@@ -1,0 +1,11 @@
+tenant_id,group_id,contact_type,contact_id,active_from_date,active_to_date,create_date,version
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-sit'),P,(SELECT id FROM people WHERE username = 'jawbenne'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-sit'),P,(SELECT id FROM people WHERE username = 'ewestfal'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-sit'),P,(SELECT id FROM people WHERE username = 'ssaripel'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-sit'),P,(SELECT id FROM people WHERE username = 'kmcnew'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-sit'),P,(SELECT id FROM people WHERE username = 'fraferna'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-sit'),P,(SELECT id FROM people WHERE username = 'athill'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-one'),P,(SELECT id FROM people WHERE username = 'ewestfal'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-one'),P,(SELECT id FROM people WHERE username = 'dhdyer'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi'),G,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-sit'),NULL,NULL,NOW(),1
+1,(SELECT id FROM groups WHERE alias = 'bl-uits-esi'),G,(SELECT id FROM groups WHERE alias = 'bl-uits-esi-one'),NULL,NULL,NOW(),1
